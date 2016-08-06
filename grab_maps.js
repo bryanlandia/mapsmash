@@ -1,18 +1,17 @@
-const tile_width = 180;
-const tile_height = 180;
+const tile_width = 100;
+const tile_height = 100;
 const tile_scale = 1; 
 const gmaps_map_zoom = 14;
-const gmaps_map_types = new Array("hybrid"); //("streetmap", "satellite", "hybrid", "terrain");
+const gmaps_map_types = new Array("terrain"); //("streetmap", "satellite", "hybrid", "terrain");
 const gmaps_base_url = "https://maps.googleapis.com/maps/api/staticmap?";
 const gmaps_static_api_key = "AIzaSyCTwebk8_x6tkFkTvdcSvh96ZkWLcdQDYk";
 const gmaps_vertical_crop = 22;
-const start_max_lat = 48;  // roughly Seattle
-const start_min_lat = 47;
-const start_max_lng = -122;
-const start_min_lng = -122.5;
-const offsetDivisor = 1000;
-
-// center=".$lat.",".$lng."&size=40x40&maptype=roadmap&sensor=false&zoom=12&key=YOURAPIKEY";
+// 47.7165502,-122.3240542 (north Seattle)
+const start_max_lat = 47.72;
+const start_min_lat = 47.71;
+const start_max_lng = -122.32;
+const start_min_lng = -122.35;
+const offsetDivisor = 10000;
 
 (function($) {
 
@@ -30,7 +29,7 @@ const offsetDivisor = 1000;
 
 	function load_tiles(offsetY=0, offsetX=0) {
 		// debugger;
-		console.log('loading new tiles.  offsetY:'+offsetY+', offsetX:'+offsetX);
+		//console.log('loading new tiles.  offsetY:'+offsetY+', offsetX:'+offsetX);
 
 		for (var v=1; v<=vert; v++) {
 			// place tiles
