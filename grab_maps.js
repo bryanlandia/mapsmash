@@ -4,7 +4,6 @@ const tile_scale = 1;
 const gmaps_map_zoom = 14;
 const gmaps_map_types = new Array("terrain"); //("streetmap", "satellite", "hybrid", "terrain");
 const gmaps_base_url = "https://maps.googleapis.com/maps/api/staticmap?";
-const gmaps_static_api_key = "AIzaSyCTwebk8_x6tkFkTvdcSvh96ZkWLcdQDYk";
 const gmaps_vertical_crop = 22;
 // 47.7165502,-122.3240542 (north Seattle)
 const start_max_lat = 47.72;
