@@ -1,8 +1,8 @@
-const tile_width = 240;
-const tile_height = 240;
+const tile_width = 180;
+const tile_height = 180;
 const tile_scale = 1; 
 const gmaps_map_zoom = 14;
-const gmaps_map_type = "hybrid";
+const gmaps_map_types = new Array("hybrid"); //("streetmap", "satellite", "hybrid", "terrain");
 const gmaps_base_url = "https://maps.googleapis.com/maps/api/staticmap?";
 const gmaps_static_api_key = "AIzaSyCTwebk8_x6tkFkTvdcSvh96ZkWLcdQDYk";
 const gmaps_vertical_crop = 22;
@@ -36,9 +36,12 @@ const offsetDivisor = 1000;
 			// place tiles
 			var row = $("<div class='tile-row'/>").appendTo(tile_div);
 			for (var h=1; h<=horiz; h++) {
+				maptype = Math.floor(random()*gmaps_map_types.length);
+				maptype = gmaps_map_types[maptype];
+				console.log(maptype);
 				geo = {max_lat: max_lat-(offsetY/offsetDivisor), min_lat: min_lat-(offsetY/offsetDivisor), max_lng: max_lng+offsetX, min_lng: min_lng+offsetX};
 				latlng = randLatLng(geo);
-				url = gmaps_base_url + "center="+latlng.lat+","+latlng.lng+"&size="+tile_width+"x"+tile_height+"&maptype="+gmaps_map_type+"&zoom="+gmaps_map_zoom+"&key="+gmaps_static_api_key;
+				url = gmaps_base_url + "center="+latlng.lat+","+latlng.lng+"&size="+tile_width+"x"+tile_height+"&maptype="+maptype+"&zoom="+gmaps_map_zoom+"&key="+gmaps_static_api_key;
 				var img_str = "<img src='"+url+"'/>";
 				var img = $(img_str);
 				var img_container = $("<div class='img-container'/>");
