@@ -11,7 +11,7 @@ const start_max_lat = 47.72;
 const start_min_lat = 47.71;
 const start_max_lng = -122.32;
 const start_min_lng = -122.35;
-const offsetDivisor = 10000;
+const offsetDivisor = 5000;
 
 (function($) {
 
@@ -23,13 +23,17 @@ const offsetDivisor = 10000;
 	var tile_div = $('#map-tiles');
 	var horiz = Math.ceil($('body').width() / tile_width);
 	var vert = Math.ceil($('body').height() / (tile_height-gmaps_vertical_crop));
+	var lastScrollTop;
 
 	$(document).ready(function(){ load_tiles()});
-	$(window).scroll(function() {load_tiles($(window).scrollTop(), $(window).scrollLeft())});
+	$(window).scroll(function() {
+		if ($(window).scrollTop() <= lastScrollTop) return; // only load new on scroll down
+		load_tiles($(window).scrollTop(), $(window).scrollLeft())
+	});
 
 	function load_tiles(offsetY=0, offsetX=0) {
 		// debugger;
-		//console.log('loading new tiles.  offsetY:'+offsetY+', offsetX:'+offsetX);
+		console.log('loading new tiles.  offsetY:'+offsetY+', offsetX:'+offsetX);
 
 		for (var v=1; v<=vert; v++) {
 			// place tiles
@@ -37,7 +41,7 @@ const offsetDivisor = 10000;
 			for (var h=1; h<=horiz; h++) {
 				maptype = Math.floor(random()*gmaps_map_types.length);
 				maptype = gmaps_map_types[maptype];
-				console.log(maptype);
+				//console.log(maptype);
 				geo = {max_lat: max_lat-(offsetY/offsetDivisor), min_lat: min_lat-(offsetY/offsetDivisor), max_lng: max_lng+offsetX, min_lng: min_lng+offsetX};
 				latlng = randLatLng(geo);
 				url = gmaps_base_url + "center="+latlng.lat+","+latlng.lng+"&size="+tile_width+"x"+tile_height+"&maptype="+maptype+"&zoom="+gmaps_map_zoom+"&key="+gmaps_static_api_key;
@@ -50,6 +54,7 @@ const offsetDivisor = 10000;
 			}
 		}
 		tile_div.css('height', tile_div.height()*2);
+		lastScrollTop = $(window).scrollTop();
 	}
 
 	function random() {
