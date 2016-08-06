@@ -48,6 +48,7 @@ const offsetDivisor = 5000;
 				var img = $(img_str);
 				var img_container = $("<div class='img-container'/>");
 				img_container.css("max-height",tile_height - gmaps_vertical_crop).css("max-width",tile_width);
+				if (h % 2 == 0) img_container.addClass('odd');
 				img_container.append(img);
 				row.append(img_container);
 			}
