@@ -7,7 +7,11 @@ const gmaps_vertical_crop = 22;
 const gmaps_road_weight = 4;
 const gmaps_road_color = "0x000000";
 const gmaps_road_style = {'weight': gmaps_road_weight, 'color': gmaps_road_color};
-const gmaps_base_url = "https://maps.googleapis.com/maps/api/staticmap?";
+const gmaps_base_url = "https://maps.googleapis.com/maps/api/";
+const gmaps_api_types = {"streetview": {"latlng_param_name": "location"},
+                         "staticmap": {"latlng_param_name": "center"}
+                        };
+const gmaps_api_type = "staticmap";               
 
 // 47.7165502,-122.3240542 (north Seattle)
 const start_max_lat = 47.72;
@@ -16,9 +20,12 @@ const start_max_lng = -122.38;
 const start_min_lng = -122.27;
 const offsetDivisor = 5000;
 
-var styles = (Boolean(gmaps_road_style)) ? "style=feature:road|element:geometry|color:"+gmaps_road_style.color+"|weight:"+gmaps_road_style.weight+"&" : "";
-var gmaps_url = gmaps_base_url + styles;
 
+
+var gmaps_api_obj = eval("gmaps_api_types."+gmaps_api_type);
+var styles = (Boolean(gmaps_road_style)) ? "style=feature:road|element:geometry|color:"+gmaps_road_style.color+"|weight:"+gmaps_road_style.weight+"&" : "";
+var gmaps_url = gmaps_base_url + gmaps_api_type + "?"+ styles;
+var latlng_param_name = gmaps_api_obj.latlng_param_name;
 
 (function($) {
 
@@ -51,7 +58,7 @@ var gmaps_url = gmaps_base_url + styles;
 				//console.log(maptype);
 				geo = {max_lat: max_lat-(offsetY/offsetDivisor), min_lat: min_lat-(offsetY/offsetDivisor), max_lng: max_lng+offsetX, min_lng: min_lng+offsetX};
 				latlng = randLatLng(geo);
-				url = gmaps_url + "center="+latlng.lat+","+latlng.lng+"&size="+tile_width+"x"+tile_height+"&maptype="+maptype+"&zoom="+gmaps_map_zoom+"&key="+gmaps_static_api_key;
+				url = gmaps_url + latlng_param_name + "="+latlng.lat+","+latlng.lng+"&size="+tile_width+"x"+tile_height+"&maptype="+maptype+"&zoom="+gmaps_map_zoom+"&key="+gmaps_static_api_key;
 				var img_str = "<img src='"+url+"'/>";
 				var img = $(img_str);
 				var img_container = $("<div class='img-container'/>");
