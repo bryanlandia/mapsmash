@@ -1,0 +1,19 @@
+
+.cities-row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.cities-row div.col {
+	padding: 5px;
+}	
+
+.cities-row img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 5px 5px 5px 0;
+	border: 1px solid #000;
+}
