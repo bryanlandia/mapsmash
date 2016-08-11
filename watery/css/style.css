@@ -1,0 +1,11 @@
+.imgcontainer {
+	display:inline-block;
+	float: right;
+	white-space: nowrap;
+}
+
+body>div  {
+  margin: 5px;
+}
+
+

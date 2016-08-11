@@ -1,0 +1,6 @@
+motionless==1.2
+fiona
+shapely
+pycurl
+Pillow
+html==1.16
