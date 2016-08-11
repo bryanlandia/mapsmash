@@ -17,7 +17,7 @@ You will need to create a virtualenv and `pip install -r requirements.txt`
 
 `watery/` was generated with `findwater.py` and has tiles for most of the non-coastal water in Washington state.  
 
-* [http://htmlpreview.github.io/?https://github.com/bryanlandia/mapsmash/blob/master/watery/index.html](http://htmlpreview.github.io/?https://github.com/bryanlandia/mapsmash/blob/master/watery/index.html)
+* [https://cdn.rawgit.com/bryanlandia/mapsmash/master/watery/index.html](https://cdn.rawgit.com/bryanlandia/mapsmash/master/watery/index.html)
 
 
 ## Jigsaw
