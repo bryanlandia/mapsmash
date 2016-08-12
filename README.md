@@ -17,7 +17,7 @@ You will need to create a virtualenv and `pip install -r requirements.txt`
 
 `watery/` was generated with `findwater.py` and has tiles for most of the non-coastal water in Washington state.  
 
-* [http://cdn.rawgit.com/bryanlandia/mapsmash/master/watery/index.html](http://cdn.rawgit.com/bryanlandia/mapsmash/master/watery/index.html)
+* [http://rawgit.com/bryanlandia/mapsmash/master/watery/index.html](http://rawgit.com/bryanlandia/mapsmash/master/watery/index.html)
 
 
 ## Jigsaw
@@ -29,7 +29,7 @@ You will need to create a virtualenv and `pip install -r requirements.txt`
 
 `points-south`/ was generated with the Jigsaw tool for several cities and has a magnifier look at the maps
 
-* [http://cdn.rawgit.com/bryanlandia/mapsmash/master/points-south/index.html](http://cdn.rawgit.com/bryanlandia/mapsmash/master/points-south/index.html)
+* [http://rawgit.com/bryanlandia/mapsmash/master/points-south/index.html](http://rawgit.com/bryanlandia/mapsmash/master/points-south/index.html)
 
 
 
