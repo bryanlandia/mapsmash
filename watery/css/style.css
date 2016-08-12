@@ -5,6 +5,17 @@
 	margin-left: 5px;
 }
 
+.imgcontainer.type {
+	background-color: #FFFF00;
+	color: #fff;
+	width: 100px; max-width: 100px;
+	height: 85px; max-height: 85px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 75px;
+	text-align: center;
+}
+
 
 body>div  {
   margin: 5px;
