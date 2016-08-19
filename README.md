@@ -31,6 +31,4 @@ You will need to create a virtualenv and `pip install -r requirements.txt`
 
 * [http://cdn.rawgit.com/bryanlandia/mapsmash/master/points-south/index.html](http://cdn.rawgit.com/bryanlandia/mapsmash/master/points-south/index.html)
 
-
-
-
+![detail from Points South](img/points_south.png)
